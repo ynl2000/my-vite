@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+@mixin size($width, $height:$width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin flexCenter(){
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+// 반응형 사이즈
+@mixin responsive($media) {
+	$pc: '(min-width: 1101px)';
+	$tablet: '(max-width: 1100px)';
+	$mob: '(max-width: 767px)';
+	$mob-small: '(max-width: 375px)';
+
+	@if $media == pc {
+		@media only screen and #{$pc} {
+			@content;
+		}
+	}
+	@else if $media == tablet {
+		@media only screen and #{$tablet} {
+			@content;
+		}
+	}
+	@else if $media == mob {
+		@media only screen and #{$mob} {
+			@content;
+		}
+	}
+	@else if $media == mob-small {
+		@media only screen and #{$mob-small} {
+			@content;
+		}
+	}
+}
+
+// 줄바꿈
+@mixin text-wordwrap($wordwrap:break-word,$wordbreak:keep-all) {
+	word-wrap: $wordwrap;
+	word-break: $wordbreak;
+	overflow-wrap: break-word;
+}
+
+// 말줄임
+@mixin text-truncate($truncation-boundary:null) {
+	max-width: $truncation-boundary;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+// 말줄임여러줄
+@mixin truncateLine($truncation-boundary:null,$max-height:null,$line-clamp:2) {
+	display: block;
+	display: -webkit-box;
+	display: -ms-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $line-clamp;
+	overflow: hidden;
+	max-width: $truncation-boundary;
+	max-height: $max-height;
+	word-wrap: break-word;
+	word-break: keep-all;
+	text-overflow: ellipsis;
+}
+
+@mixin mobBgDefault($top: 0, $height: 100%, $background: #a4ce4e) {
+	content: '';
+	position: absolute;
+	top: $top;
+	left: -20px;
+	display: block;
+	width: calc(100% + 40px);
+	height: $height;
+	background-color: $background;
+	z-index: -2;
+}
+
+@mixin mobBgTop($height: calc(100% + 30px), $background: #a4ce4e) {
+	content: '';
+	position: absolute;
+	top: -30px;
+	left: -20px;
+	display: block;
+	width: calc(100% + 40px);
+	height: $height;
+	background-color: $background;
+	z-index: -2;
+}
+
+@mixin mobBgPoint() {
+	content: '';
+	position: absolute;
+	top: -30px;
+	left: -20px;
+	width: 236px;
+	height: 122px;
+	background: url($imgUrlMob + "/bg/bg_top_point_yellow.png");
+	background-size: 100% auto;
+	z-index: -1;
+}
+
+@mixin mobBgBottomRound($top: -30px) {
+	content: '';
+	position: absolute;
+	top: $top;
+	left: -20px;
+	width: calc(100% + 40px);
+	height: 120px;
+	background: url($imgUrlMob + "/bg/bg_top_round_green.png") no-repeat bottom center;
+	background-size: auto 100%;
+	z-index: -1;
+}

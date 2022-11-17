@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    메인
+    스킬
   </div>
 </template>
 

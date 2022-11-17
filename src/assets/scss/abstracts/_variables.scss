@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+$baseBackground: #fff;
+$baseForeground: #000;
+
+$colorMain1: #00a3ad;
+$colorMain1Hover: #01878f;
+$colorMain2: #a4ce4e;
+
+$colorPoint1: #ffc600;
+$colorPoint2: #e22870;
+$colorPoint3: #a28efa;
+$colorPoint4: #7c68d1;
+
+$colorTxt1:#333;
+$colorTxt2:#666;
+$colorTxt3:#777;
+$colorTxt4:#888;
+$colorTxt5:#999;
+
+$grayBg1 : #b2b2b2;
+$grayBg2 : #c2c2c2;
+$grayBg3 : #eee;
+$grayBg4 : #f5f5f5;
+$grayBg5 : #f7f7f7;
+$grayBg6 : #fbfbfb;
+
+$colorBorder1: #555;
+$colorBorder2: #bbb;
+$colorBorder3: #d7d7d7;
+$colorBorder4: #ddd;
+$colorBorder5: #eaeaea;
+$colorBorder6: #f5f5f5;
+
+/* 학습창 컬러 가이드 */
+$lwBgAll     : #222;
+$lwBgTitle   : #1d1d1d;
+$lwBgList    : #262626;
+$lwBgListDep : #323232;
+
+$lwColorBorder : #393939;
+
+$lwColorPoint1 : #00a3ad;
+$lwColorPoint2 : #e53939;
+$lwColorPoint3 : #018f8f;
+
+$imgUrl : '~@/assets/images/pc';
+$imgUrlMob: '~@/assets/images/mob';
+
+:root {
+  --txt-size-visual  : 52px; // 비주얼영역 전용
+  --txt-size-lnb     : 28px; // LNB 전용
+  --txt-size-large   : 28px;
+  --txt-size-course  : 24px;
+  --txt-size-title   : 22px;
+  --txt-size-middle  : 20px;
+  --txt-size-default : 18px;
+  --txt-size-sub     : 16px;
+  --txt-size-small   : 14px;
+}
+
+@include responsive(mob){
+  :root {
+    --txt-size-visual  : 30px;
+    --txt-size-lnb     : 22px;
+    --txt-size-large   : 20px;
+    --txt-size-course  : 18px;
+    --txt-size-title   : 16px;
+    --txt-size-middle  : 14px;
+    --txt-size-default : 13px;
+    --txt-size-sub     : 12px;
+    --txt-size-small   : 12px;
+  }
+}

@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    메인
+    히스토리
   </div>
 </template>
 

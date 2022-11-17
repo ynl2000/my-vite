@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    메인
+    소개
   </div>
 </template>
 

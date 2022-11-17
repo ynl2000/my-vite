@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this to include the pixel amounts you need.
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+/* margin & padding */
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        .hp-mg-#{str-slice($side, 0, 1)}#{$space} {
+            margin-#{$side}: #{$space}px !important;
+        }
+
+        .hp-pd-#{str-slice($side, 0, 1)}#{$space} {
+            padding-#{$side}: #{$space}px !important;
+        }
+    }
+}
+/* End : margin & padding */
+
+/* helper class */
+.hp {
+    /* border Elements */
+    &-border-none {
+        border:0 !important;
+    }
+
+    &-is {
+        &-show {
+            display: block !important;
+        }
+
+        &-hide {
+            display: none !important;
+        }
+
+        &-flex {
+            display: flex !important;
+        }
+
+        &-table {
+            display: table !important;
+        }
+    }
+
+   /* Align */
+    &-text {
+        &-l {
+            text-align: left !important;
+        }
+        &-c {
+            text-align: center !important;
+        }
+        &-r {
+            text-align: right !important;
+        }
+    }
+
+    &-align {
+        &-top {
+            vertical-align: top !important;
+        }
+        &-middle {
+            vertical-align: middle !important;
+        }
+        &-bottom {
+            vertical-align: bottom !important;
+        }
+    }
+
+    &-float {
+        &-left {
+            float: left !important;
+        }
+        &-right {
+            float: right !important;
+        }
+    }
+
+    &-clearfix {
+        &:before,
+        &:after {
+            content: "";
+            display: table;
+        }
+    
+        &:after { clear: both; }
+    }
+    /* // Align */
+}
+/* // helper class */
+
+@include responsive(mob) {
+    .hp {
+        &-br-none {
+            br {
+                display: none;
+            }
+        }
+    }
+}

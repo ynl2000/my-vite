@@ -9,8 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@types/vue-moment": "^4.0.3",
-    "moment": "^2.29.4",
+    "@types/node": "^18.11.9",
+    "dayjs": "^1.11.6",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
   },

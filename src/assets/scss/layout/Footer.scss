@@ -1,0 +1,370 @@
+.footer {
+  position: relative;
+
+  .go-top {
+    position: fixed;
+    left: 50%;
+    bottom: 50px;
+    margin-left: 685px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .9);
+    z-index: 10;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: $colorMain1;
+      border-radius: 50%;
+      z-index: 11;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease-in;
+    }
+
+    &-btn {
+      position: relative;
+      display: block;
+      width: 64px;
+      height: 64px;
+      background: transparent url($imgUrl + "/button/btn_page_top.png") no-repeat center;
+      background-size: 21px auto;
+      border-radius: 50%;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, .12);
+      transition: background .2s ease-in;
+      z-index: 12;
+    }
+
+    &:hover {
+      &:before {
+        animation: topAnimation .2s ease-out;
+      }
+
+      .go-top-btn {
+        background-image: url($imgUrl + "/button/btn_page_top_hover.png");
+      }
+    }
+
+    &.is-fixed {
+      position: absolute;
+      bottom: calc(100% - 32px);
+    }
+  }
+
+  &-menu {
+    padding-top: 20px;
+    border-top: 1px solid $colorBorder5;
+    font-size: var(--txt-size-sub);
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+      visibility: hidden;
+    }
+
+    &-list {
+      width: 1100px;
+      margin: 0 auto;
+
+      .menu-item {
+        float: left;
+        height: 40px;
+        line-height: 38px;
+        color: $colorTxt3;
+
+        & + .menu-item {
+          margin-left: 35px;
+        }
+
+        .color-mint {
+          color: $colorMain1;
+        }
+
+        &.links {
+          position: relative;
+          border: 1px solid $colorMain1;
+          border-radius: 20px;
+          transition-delay: .1s;
+
+          &.is-open {
+            border-top: none;
+            border-radius: 0 0 20px 20px;
+            transition-delay: 0s;
+
+            .title {
+              .icon-arrow {
+                transform: rotate(180deg);
+              }
+            }
+          }
+
+          .title {
+            padding: 0 40px;
+
+            span {
+              color: $colorMain1;
+            }
+
+            .icon-arrow {
+              display: inline-block;
+              vertical-align: middle;
+              width: 8px;
+              height: 5px;
+              margin-left: 20px;
+              background: url($imgUrl + "/icon/icon_footer_link.png");
+              transition: ease .2s;
+            }
+          }
+
+          .list {
+            position: absolute;
+            bottom: 100%;
+            left: -1px;
+            width: calc(100% + 2px);
+            padding: 30px 40px;
+            background: #fff;
+            border: 1px solid $colorMain1;
+            border-bottom: none;
+            border-radius: 20px 20px 0 0;
+
+            &-item {
+              line-height: 30px;
+
+              a {
+                transition: color .2s;
+
+                &:hover {
+                  color: $colorMain1;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-company {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0 50px;
+
+    .company {
+      &-info {
+        line-height: 23px;
+        font-size: 16px;
+        color: $colorTxt3;
+
+        .ci {
+          height: 24px;
+          margin-bottom: 10px;
+
+          img {
+            width: auto;
+            height: 100%;
+          }
+        }
+
+        .copy {
+          font-size: 13px;
+        }
+      }
+
+      &-cs {
+        [class^=company-cs] {
+          margin-top: 18px;
+          display: flex;
+          align-items: center;
+          justify-self: flex-end;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          .title {
+            position: relative;
+            display: block;
+            font-size: 20px;
+            padding-left: 35px;
+
+            &:before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 0;
+              display: block;
+              width: 23px;
+              height: 24px;
+              margin-top: -12px;
+              background: url($imgUrl + "/icon/icon_footer_cs.png") no-repeat left center;
+              background-size: auto 100%;
+            }
+          }
+
+          .txt {
+            margin-left: 20px;
+
+            a {
+              display: inline-block;
+              font-size: var(--txt-size-sub);
+              font-weight: 500;
+            }
+          }
+        }
+
+        .company-cs-system {
+          .title {
+            &:before {
+              background-position: right center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer-mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1530px) {
+  .footer {
+    .go-top {
+      left: auto;
+      right: 20px;
+      bottom:80px;
+    }
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .footer {
+    &-menu {
+      padding: 20px 20px 0;
+      overflow: hidden;
+    }
+
+    &-company {
+      padding: 20px 20px 50px;
+      overflow: hidden;
+    }
+  }
+}
+
+@include responsive(tablet) {
+  .footer {
+    .go-top {
+      right: 10px;
+      bottom: 75px;
+    }
+
+    &-menu, &-company {
+      display: none;
+    }
+  }
+
+  .footer-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.15);
+    z-index: 10;
+
+    .menu {
+      height: 65px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      &-item {
+        text-align: center;
+        padding: 0 10px;
+
+        [class^=icon] {
+          display: inline-block;
+          width: 23px;
+          height: 25px;
+          background: transparent url($imgUrlMob + "/icon/icon_btm_menu.png") no-repeat;
+          background-size: auto 200%;
+          margin-bottom: 5px;
+        }
+
+        .fi-home {
+          display: block;
+          font-size:25px;
+          margin-bottom:5px;
+          color:$colorTxt4;
+        }
+
+        .icon {
+
+          &-myhome {
+            background-position-x: -22px;
+          }
+
+          &-calendar {
+            background-position-x: -45px;
+            width: 25px;
+          }
+
+          &-search {
+            background-position-x: right;
+          }
+        }
+
+        .txt {
+          color: $colorTxt4;
+          transition: all ease .2s;
+        }
+
+        &:hover {
+          [class^=icon] {
+            background-position-y: bottom;
+          }
+
+          .fi-home {
+            color:$colorMain1;
+          }
+
+          .txt {
+            color: $colorMain1Hover;
+          }
+        }
+
+        &.menu-btn {
+          width:100%;
+
+          button {
+            width:100%;
+          }
+        }
+      }
+    }
+
+    &.is-hide {
+      display: none;
+    }
+  }
+}
+
+@include responsive(mob) {
+  .footer {
+    .go-top-btn {
+      width: 40px;
+      height: 40px;
+      background-size: 14px auto;
+    }
+  }
+}

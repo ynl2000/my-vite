@@ -1,0 +1,73 @@
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  cursor: default;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  tab-size: 4
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+  
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+button ,
+input ,
+select {
+  font-family: 'Noto Sans KR', 'Nanum Gothic', 'dotum', sans-serif;
+}
+
+address {
+  font-style: normal;
+}
+
